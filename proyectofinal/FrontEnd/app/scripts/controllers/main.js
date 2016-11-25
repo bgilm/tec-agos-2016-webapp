@@ -52,14 +52,22 @@ angular.module('bancosFrontApp')
             	$log.debug("add"+cuenta.numeroCuenta +"|"+cuenta.nombreCuenta);
 
 
-    		    	//$scope.cuentas = CuentaBancaria.listas(); 
-              $scope.cuentas = $http.get("http://localhost:8080/cuentas")
+            $http.post("http://localhost:8080/cuentas",{nombre:cuenta.nombreCuenta,numeroCuenta:cuenta.numeroCuenta})
                           .then(function(response) {
-                            $log.debug("json"+response.data.nombre)
+                            $log.debug("en el insert"+response.data)
+                              $scope.cuentas = $http.get("http://localhost:8080/cuentas")
+                                .then(function(response) {
+                                $log.debug(" en la lista"+response.data.nombre)
                               $scope.cuentas = response.data;
 
                          
-                        });         
+                        });       
+
+                         
+                        });  
+
+    		    	//$scope.cuentas = CuentaBancaria.listas(); 
+                    
 
 			
             }
