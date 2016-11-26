@@ -19,6 +19,7 @@
   <body>
       <div ng-app="prueba" ng-controller="MainCtrl">
         <form>
+<!--
       <div class="form-group">
         <label for="banco">Banco:</label>
         <input type="text" class="form-control" id="banco">
@@ -56,6 +57,7 @@
             <input type="number" class="form-control" id="plazo">
         </div>
             <input type="submit" value="Submit">
+-->
         </form>
       
          </div>
@@ -95,20 +97,22 @@
         var req = {
             method: 'POST',
             url: 'http://localhost:8000/cuenta/Registrar',
-            headers: {
-                'Authorization':'Basic '+encodedString
-            },
-            data:{username:'admin',
+              data:{username:'admin',
                           banco:'HSBC',
                           numero_cuenta: '123',
-                          clabe:'123',
+                          clabe:'1223',
                           tipo_cuenta:'Cuenta de ahorros',
                           monto:'123',
                           t_tarjeta_debito:'True',
                           num_tarjeta:'123',
                           tasa_inflacion:'123',
                           plazo:'123',
-                    }
+                    },
+           
+            headers: {
+                'Authorization':'Basic '+encodedString
+            }
+          
             }
             
        
