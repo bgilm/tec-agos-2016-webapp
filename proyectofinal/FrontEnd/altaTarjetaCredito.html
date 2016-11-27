@@ -24,38 +24,30 @@
         <input type="text" class="form-control" id="banco">
       </div>
         <div class="form-group">
-            <label for="numero_cuenta">Numero de cuenta:</label>
-            <input type="number" class="form-control" id="numero_cuenta">
+            <label for="numero_tarjeta">Numero de tarjeta:</label>
+            <input type="number" class="form-control" id="numero_tarjeta">
         </div>
             <div class="form-group">
-            <label for="clabe">Clabe:</label>
-            <input type="number" class="form-control" id="clabe">
+            <label for="limite_credito">Limite de credito:</label>
+            <input type="number" class="form-control" id="limite_credito">
         </div>
         <div class="form-group">
-            <label for="tipo_cuenta">Tipo de cuenta:</label>
-            <input type="text" class="form-control" id="tipo_cuenta">
+            <label for="tasa_interes">Tasa de interes:</label>
+            <input type="text" class="form-control" id="tasa_interes">
         </div>
         <div class="form-group">
-            <label for="monto">Monto:</label>
-            <input type="number" class="form-control" id="monto">
+            <label for="alias">Alias:</label>
+            <input type="number" class="form-control" id="alias">
         </div>
         <div class="form-group">
-            <label for="t_tarjeta_debito">Tarjeta de debito:</label>
-            <input type="text" class="form-control" id="t_tarjeta_debito">
+            <label for="saldo">Saldo:</label>
+            <input type="text" class="form-control" id="saldo">
         </div>
         <div class="form-group">
-            <label for="num_tarjeta">Numero de tarjeta:</label>
-            <input type="number" class="form-control" id="num_tarjeta">
+            <label for="fecha_corte">Fecha de corte:</label>
+            <input type="date" class="form-control" id="fecha_corte">
         </div>
-        <div class="form-group">
-            <label for="tasa_inflacion">Tasa de inflacion:</label>
-            <input type="number" class="form-control" id="tasa_inflacion">
-        </div>
-        <div class="form-group">
-            <label for="plazo">Plazo:</label>
-            <input type="number" class="form-control" id="plazo">
-        </div>
-            <input type="submit" value="AltaCuenta">
+            <input type="submit" value="Registrar">
         </form>
       
          </div>
@@ -107,29 +99,23 @@
 //                  })
             $scope.altaCuenta = function(){
                 var banco=document.getElementById("banco").value;
-                var numero_cuenta=document.getElementById("numero_cuenta").value;
-                var clabe=document.getElementById("clabe").value;
-                var tipo_cuenta=document.getElementById("tipo_cuenta").value;
-                var monto=document.getElementById("monto").value;
-                var t_tarjeta_debito =document.getElementById("t_tarjeta_debito").value;
-                var num_tarjeta=document.getElementById("num_tarjeta").value;
-                    var tasa_inflacion=document.getElementById("tasa_inflacion").value;
-                var plazo =document.getElementById("plazo").value;
-        
-        
+                var numero_tarjeta=document.getElementById("numero_tarjeta").value;
+                var limite_credito=document.getElementById("limite_credito").value;
+                var tasa_interes=document.getElementById("tasa_interes").value;
+                var alias=document.getElementById("alias").value;
+                var fecha_corte =document.getElementById("fecha_corte").value;
+                var saldo =document.getElementById("saldo").value;        
         var req = {
             method: 'POST',
-            url: 'http://localhost:8000/cuenta/RegistrarTarjeta',
+            url: 'http://localhost:8000/tarjeta/RegistrarTarjeta',
               data:{username:'admin',
                           banco:banco,
-                          numero_cuenta: numero_cuenta,
-                          clabe:clabe,
-                          tipo_cuenta:tipo_cuenta,
-                          monto:monto,
-                          t_tarjeta_debito:t_tarjeta_debito,
-                          num_tarjeta:num_tarjeta,
-                          tasa_inflacion:tasa_inflacion,
-                          plazo:plazo,
+                          numero_tarjeta: numero_tarjeta,
+                          limite_credito:limite_credito,
+                          tasa_interes:tasa_interes,
+                          alias:alias,
+                          fecha_corte:fecha_corte,
+                          saldo:saldo,
                     },
            
             headers: {
