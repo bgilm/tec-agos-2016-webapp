@@ -20,32 +20,32 @@
       <div ng-app="prueba" ng-controller="MainCtrl">
         <form ng-submit="altaCuenta()">
       <div class="form-group">
-        <label for="cuenta">Cuenta:</label>
-        <input type="cuenta" class="form-control" id="cuenta">
+        <label for="banco">Banco:</label>
+        <input type="text" class="form-control" id="banco">
       </div>
         <div class="form-group">
-            <label for="nombre">Nombre de referencia:</label>
-            <input type="text" class="form-control" id="nombre">
+            <label for="numero_tarjeta">Numero de tarjeta:</label>
+            <input type="number" class="form-control" id="numero_tarjeta">
         </div>
             <div class="form-group">
-            <label for="monto">Monto:</label>
-            <input type="number" class="form-control" id="monto">
+            <label for="limite_credito">Limite de credito:</label>
+            <input type="number" class="form-control" id="limite_credito">
         </div>
         <div class="form-group">
-            <label for="recurrencia">Recurrencia:</label>
-            <input type="text" class="form-control" id="recurrencia">
+            <label for="tasa_interes">Tasa de interes:</label>
+            <input type="text" class="form-control" id="tasa_interes">
         </div>
         <div class="form-group">
-            <label for="fijo">Es fijo?:</label>
-            <input type="number" class="form-control" id="fijo">
+            <label for="alias">Alias:</label>
+            <input type="number" class="form-control" id="alias">
         </div>
         <div class="form-group">
-            <label for="tipo">Tipo:</label>
-            <input type="text" class="form-control" id="tipo">
+            <label for="saldo">Saldo:</label>
+            <input type="text" class="form-control" id="saldo">
         </div>
         <div class="form-group">
-            <label for="fecha">Fecha:</label>
-            <input type="date" class="form-control" id="fecha">
+            <label for="fecha_corte">Fecha de corte:</label>
+            <input type="date" class="form-control" id="fecha_corte">
         </div>
             <input type="submit" value="Registrar">
         </form>
@@ -98,27 +98,25 @@
 //                    }
 //                  })
             $scope.altaCuenta = function(){
-                var cuenta=document.getElementById("cuenta").value;
-                var nombre=document.getElementById("nombre").value;
-                var monto=document.getElementById("monto").value;
-                var recurrencia=document.getElementById("recurrencia").value;
-                var fijo=document.getElementById("fijo").value;
-                var tipo =document.getElementById("tipo").value;
-                var fecha =document.getElementById("fecha").value;
-                
-              
-                
+                var pk = 1;
+                var banco=document.getElementById("banco").value;
+                var numero_tarjeta=document.getElementById("numero_tarjeta").value;
+                var limite_credito=document.getElementById("limite_credito").value;
+                var tasa_interes=document.getElementById("tasa_interes").value;
+                var alias=document.getElementById("alias").value;
+                var fecha_corte =document.getElementById("fecha_corte").value;
+                var saldo =document.getElementById("saldo").value;        
         var req = {
-            method: 'POST',
-            url: 'http://localhost:8000/perfil/ingreso/agregar',
+            method: 'PUT',
+            url: 'http://localhost:8000/perfil/tarjeta/modificar/'+pk,
               data:{username:'admin',
-                          tarjeta:tarjeta,
-                          nombre: nombre,
-                          monto:monto,
-                          recurrencia:recurrencia,
-                          fijo:fijo,
-                          tipo:tipo,
-                          fecha:fecha   
+                          banco:banco,
+                          numero_tarjeta: numero_tarjeta,
+                          limite_credito:limite_credito,
+                          tasa_interes:tasa_interes,
+                          alias:alias,
+                          fecha_corte:fecha_corte,
+                          saldo:saldo,
                     },
            
             headers: {

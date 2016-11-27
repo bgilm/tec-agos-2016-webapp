@@ -20,34 +20,42 @@
       <div ng-app="prueba" ng-controller="MainCtrl">
         <form ng-submit="altaCuenta()">
       <div class="form-group">
-        <label for="cuenta">Cuenta:</label>
-        <input type="cuenta" class="form-control" id="cuenta">
+        <label for="banco">Banco:</label>
+        <input type="text" class="form-control" id="banco">
       </div>
         <div class="form-group">
-            <label for="nombre">Nombre de referencia:</label>
-            <input type="text" class="form-control" id="nombre">
+            <label for="numero_cuenta">Numero de cuenta:</label>
+            <input type="number" class="form-control" id="numero_cuenta">
         </div>
             <div class="form-group">
+            <label for="clabe">Clabe:</label>
+            <input type="number" class="form-control" id="clabe">
+        </div>
+        <div class="form-group">
+            <label for="tipo_cuenta">Tipo de cuenta:</label>
+            <input type="text" class="form-control" id="tipo_cuenta">
+        </div>
+        <div class="form-group">
             <label for="monto">Monto:</label>
             <input type="number" class="form-control" id="monto">
         </div>
         <div class="form-group">
-            <label for="recurrencia">Recurrencia:</label>
-            <input type="text" class="form-control" id="recurrencia">
+            <label for="t_tarjeta_debito">Tarjeta de debito:</label>
+            <input type="text" class="form-control" id="t_tarjeta_debito">
         </div>
         <div class="form-group">
-            <label for="fijo">Es fijo?:</label>
-            <input type="number" class="form-control" id="fijo">
+            <label for="num_tarjeta">Numero de tarjeta:</label>
+            <input type="number" class="form-control" id="num_tarjeta">
         </div>
         <div class="form-group">
-            <label for="tipo">Tipo:</label>
-            <input type="text" class="form-control" id="tipo">
+            <label for="tasa_inflacion">Tasa de inflacion:</label>
+            <input type="number" class="form-control" id="tasa_inflacion">
         </div>
         <div class="form-group">
-            <label for="fecha">Fecha:</label>
-            <input type="date" class="form-control" id="fecha">
+            <label for="plazo">Plazo:</label>
+            <input type="number" class="form-control" id="plazo">
         </div>
-            <input type="submit" value="Registrar">
+            <input type="submit" value="AltaCuenta">
         </form>
       
          </div>
@@ -98,27 +106,31 @@
 //                    }
 //                  })
             $scope.altaCuenta = function(){
-                var cuenta=document.getElementById("cuenta").value;
-                var nombre=document.getElementById("nombre").value;
+                var pk=90000;
+                var banco=document.getElementById("banco").value;
+                var numero_cuenta=document.getElementById("numero_cuenta").value;
+                var clabe=document.getElementById("clabe").value;
+                var tipo_cuenta=document.getElementById("tipo_cuenta").value;
                 var monto=document.getElementById("monto").value;
-                var recurrencia=document.getElementById("recurrencia").value;
-                var fijo=document.getElementById("fijo").value;
-                var tipo =document.getElementById("tipo").value;
-                var fecha =document.getElementById("fecha").value;
-                
-              
-                
+                var t_tarjeta_debito =document.getElementById("t_tarjeta_debito").value;
+                var num_tarjeta=document.getElementById("num_tarjeta").value;
+                    var tasa_inflacion=document.getElementById("tasa_inflacion").value;
+                var plazo =document.getElementById("plazo").value;
+        
+        
         var req = {
-            method: 'POST',
-            url: 'http://localhost:8000/perfil/ingreso/agregar',
+            method: 'PUT',
+            url: 'http://localhost:8000/perfil/cuenta/modificar/'+pk,
               data:{username:'admin',
-                          tarjeta:tarjeta,
-                          nombre: nombre,
+                          banco:banco,
+                          numero_cuenta: numero_cuenta,
+                          clabe:clabe,
+                          tipo_cuenta:tipo_cuenta,
                           monto:monto,
-                          recurrencia:recurrencia,
-                          fijo:fijo,
-                          tipo:tipo,
-                          fecha:fecha   
+                          t_tarjeta_debito:t_tarjeta_debito,
+                          num_tarjeta:num_tarjeta,
+                          tasa_inflacion:tasa_inflacion,
+                          plazo:plazo,
                     },
            
             headers: {

@@ -20,8 +20,8 @@
       <div ng-app="prueba" ng-controller="MainCtrl">
         <form ng-submit="altaCuenta()">
       <div class="form-group">
-        <label for="cuenta">Cuenta:</label>
-        <input type="cuenta" class="form-control" id="cuenta">
+        <label for="tarjeta">Tarjeta:</label>
+        <input type="number" class="form-control" id="tarjeta">
       </div>
         <div class="form-group">
             <label for="nombre">Nombre de referencia:</label>
@@ -46,6 +46,14 @@
         <div class="form-group">
             <label for="fecha">Fecha:</label>
             <input type="date" class="form-control" id="fecha">
+        </div>
+        <div class="form-group">
+            <label for="financiado">Financiado:</label>
+            <input type="date" class="form-control" id="financiado">
+        </div>
+         <div class="form-group">
+            <label for="plazo">Plazo:</label>
+            <input type="number" class="form-control" id="plazo">
         </div>
             <input type="submit" value="Registrar">
         </form>
@@ -98,19 +106,20 @@
 //                    }
 //                  })
             $scope.altaCuenta = function(){
-                var cuenta=document.getElementById("cuenta").value;
+                var pk = 1;
+                var tarjeta=document.getElementById("tarjeta").value;
                 var nombre=document.getElementById("nombre").value;
                 var monto=document.getElementById("monto").value;
                 var recurrencia=document.getElementById("recurrencia").value;
                 var fijo=document.getElementById("fijo").value;
                 var tipo =document.getElementById("tipo").value;
                 var fecha =document.getElementById("fecha").value;
-                
-              
+                var financiado =document.getElementById("financiado").value;
+                var plazo =document.getElementById("plazo").value;
                 
         var req = {
             method: 'POST',
-            url: 'http://localhost:8000/perfil/ingreso/agregar',
+            url: 'http://localhost:8000/perfil/egreso/modificar/'+pk,
               data:{username:'admin',
                           tarjeta:tarjeta,
                           nombre: nombre,
@@ -118,7 +127,9 @@
                           recurrencia:recurrencia,
                           fijo:fijo,
                           tipo:tipo,
-                          fecha:fecha   
+                          fecha:fecha,
+                          financiado:financiado,
+                          plazo:plazo    
                     },
            
             headers: {

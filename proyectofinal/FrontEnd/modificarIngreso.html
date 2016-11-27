@@ -98,6 +98,7 @@
 //                    }
 //                  })
             $scope.altaCuenta = function(){
+                var pk= 1;
                 var cuenta=document.getElementById("cuenta").value;
                 var nombre=document.getElementById("nombre").value;
                 var monto=document.getElementById("monto").value;
@@ -110,7 +111,7 @@
                 
         var req = {
             method: 'POST',
-            url: 'http://localhost:8000/perfil/ingreso/agregar',
+            url: 'http://localhost:8000/perfil/ingreso/modificar/'+pk,
               data:{username:'admin',
                           tarjeta:tarjeta,
                           nombre: nombre,
