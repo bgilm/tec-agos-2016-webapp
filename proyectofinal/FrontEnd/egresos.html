@@ -46,13 +46,13 @@
 
                   
                    
-                   <li class="active">
+                   <li>
                         <a href="cuentas.html"><span class="glyphicon glyphicon-user"></span> <span class="xn-text">Cuentas</span></a>
                     </li>
                     <li>
                         <a href="ingresos.html"><span class="fa fa-arrow-up"></span> <span class="xn-text">Ingresos</span></a>
                     </li>  
-                    <li>
+                    <li class="active">
                         <a href="egresos.html"><span class="fa fa-arrow-down"></span> <span class="xn-text">Egresos</span></a>
                     </li>  
                     <li>
@@ -95,23 +95,22 @@
                 
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Cuentas</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Egresos</h2>
                 </div>
                 <!-- END PAGE TITLE -->                
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                 
-                <a class="btn btn-primary btn-lg" data-toggle='modal' data-target='#nuevaCuenta'>Registrar Nueva Cuenta</a>
-                                         
-                    
+                <a class="btn btn-primary btn-lg"data-toggle="modal" data-target="#nuevoEgreso">Registrar Nuevo Egreso</a>
+                     
                     <!-- START RESPONSIVE TABLES -->
                     <div class="row" id="tabla responsive">
                         <div class="col-md-12">
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Cuentas registraadas</h3>
+                                    <h3 class="panel-title">Egresos registrados</h3>
                                 </div>
 
                                 <div class="panel-body panel-body-table">
@@ -120,49 +119,33 @@
                                         <table class="table table-hover table-actions ">
                                             <thead>
                                                 <tr>
-                                                    <th width="50">Banco</th>
+                                                    <th width="50">Tarjeta</th>
                                                     
-                                                    <th width="150">Numero de cuenta</th>
-                                                    <th width="100">Tipo de Cuenta</th>
-                                                    <th width="100">Saldo</th>
-                                                    <th width="100">Tarjeta</th>
-                                                    <th width="100">actions</th>
+                                                    <th width='200'>Nombre de referencia</th>
+                                                    <th width="100">Monto</th>
+                                                    <th width="100">Fijo</th>
+                                                    <th width="100">Recurrencia</th>
+                                                    <th width="100">Fecha</th>
+                                                    <th width="100">Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>                                            
                                                 <tr id="trow_1">
                                                     <td class="text-center">HSBC</td>
-                                                    <td><strong>1234567890876543</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
+                                                    <td><strong>John Doe</strong></td>
                                                     <td>$430.20</td>
-                                                    <td>24/09/2014</td>
+                                                    <td><span class="label label-success">New</span></td>
+                                                    
+                                                    <td>Mensual</td>
+                                                    <td>
+                                                       24/09/2014 
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
                                                         <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
                                                     </td>
-                                                </tr>
-                                                <tr id="trow_2">
-                                                    <td class="text-center">2</td>
-                                                    <td><strong>Dmitry Ivaniuk</strong></td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>$1,351.00</td>
-                                                    <td>23/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_3">
-                                                    <td class="text-center">3</td>
-                                                    <td><strong>Nadia Ali</strong></td>
-                                                    <td><span class="label label-info">In Queue</span></td>
-                                                    <td>$2,621.00</td>
-                                                    <td>22/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
+                                                
+                                                
                                             </tbody>
                                         </table>
                                     </div>                                
@@ -179,8 +162,9 @@
             </div>            
             <!-- END PAGE CONTENT -->
         </div>
-        <!-- END PAGE CONTAINER -->    
-          <div class="modal" id="nuevaCuenta" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <!-- END PAGE CONTAINER --> 
+        <!-- START MODAL CONTAINER-->
+          <div class="modal" id="nuevoEgreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -188,11 +172,12 @@
                         <h4 class="modal-title" id="defModalHead">Nueva Cuenta</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="row" id="formaNuevaCuenta">
+                         <div class="row"  id="formaNuevoEgreso">
                         <div class="col-md-12">
                             
                             <form class="form-horizontal">
                             <div class="panel panel-default">
+                                
                                 <div class="panel-body">                                                                        
                                     
                                     <div class="form-group">
@@ -236,13 +221,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Tags</label>
-                                        <div class="col-md-6 col-xs-12">                                                                                            
-                                            <input type="text" class="tagsinput" value="First,Second,Third"/>
-                                            <span class="help-block">Default textarea field</span>
-                                        </div>
-                                    </div>
+                                   
                                     
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-12 control-label">Select</label>
@@ -258,13 +237,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">File</label>
-                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
-                                            <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Browse file"/>
-                                            <span class="help-block">Input type file</span>
-                                        </div>
-                                    </div>
+                                    
                                     
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-12 control-label">Checkbox</label>
@@ -280,7 +253,8 @@
                             </form>
                             
                         </div>
-                    </div>  
+                    </div>                    
+                     
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    
@@ -290,6 +264,7 @@
                 </div>
             </div>
         </div>
+        <!-- END MODAL CONTAINER-->
         <!-- MESSAGE BOX-->
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-remove-row">
             <div class="mb-container">

@@ -46,10 +46,10 @@
 
                   
                    
-                   <li class="active">
+                <li>
                         <a href="cuentas.html"><span class="glyphicon glyphicon-user"></span> <span class="xn-text">Cuentas</span></a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="ingresos.html"><span class="fa fa-arrow-up"></span> <span class="xn-text">Ingresos</span></a>
                     </li>  
                     <li>
@@ -58,7 +58,6 @@
                     <li>
                         <a href="tarjetas.html"><span class="fa fa-credit-card"></span> <span class="xn-text">Tarjetas</span></a>
                     </li>  
-                    
                     
                 </ul>
        </div>
@@ -95,23 +94,22 @@
                 
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Cuentas</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Ingresos</h2>
                 </div>
                 <!-- END PAGE TITLE -->                
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                 
-                <a class="btn btn-primary btn-lg" data-toggle='modal' data-target='#nuevaCuenta'>Registrar Nueva Cuenta</a>
-                                         
-                    
+                <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevoIngreso">Registrar Nuevo Ingreso</a>
+                      
                     <!-- START RESPONSIVE TABLES -->
-                    <div class="row" id="tabla responsive">
+                    <div class="row"  id="tabla responsive">
                         <div class="col-md-12">
                             <div class="panel panel-default">
 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">Cuentas registraadas</h3>
+                                    <h3 class="panel-title">Ingresos registrados</h3>
                                 </div>
 
                                 <div class="panel-body panel-body-table">
@@ -120,22 +118,30 @@
                                         <table class="table table-hover table-actions ">
                                             <thead>
                                                 <tr>
-                                                    <th width="50">Banco</th>
+                                                    <th width="50">Cuenta</th>
                                                     
-                                                    <th width="150">Numero de cuenta</th>
-                                                    <th width="100">Tipo de Cuenta</th>
-                                                    <th width="100">Saldo</th>
-                                                    <th width="100">Tarjeta</th>
+                                                    <th>Nombre referencia </th>
+                                                    <th width="100">Monto</th>
+                                                    <th width="100">Recurrencia</th>
+                                                    <th width="100">Fecha</th>
+                                                    <th width="100">Tipo</th>
+                                                    <th width="100">Fijo</th>
                                                     <th width="100">actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>                                            
                                                 <tr id="trow_1">
                                                     <td class="text-center">HSBC</td>
-                                                    <td><strong>1234567890876543</strong></td>
+                                                    <td><strong>John Doe</strong></td>
                                                     <td><span class="label label-success">New</span></td>
                                                     <td>$430.20</td>
                                                     <td>24/09/2014</td>
+                                                    <td>JHG</td>
+                                                    <td>
+                                                      
+                                                    <input type="checkbox" checked value="0">
+                                                            
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
                                                         <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
@@ -147,6 +153,12 @@
                                                     <td><span class="label label-warning">Pending</span></td>
                                                     <td>$1,351.00</td>
                                                     <td>23/09/2014</td>
+                                                    <td>JHG</td>
+                                                    <td>
+                                                      
+                                                    <input type="checkbox" checked value="0">
+                                                            
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
                                                         <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
@@ -158,6 +170,12 @@
                                                     <td><span class="label label-info">In Queue</span></td>
                                                     <td>$2,621.00</td>
                                                     <td>22/09/2014</td>
+                                                    <td>JHG</td>
+                                                    <td>
+                                                      
+                                                    <input type="checkbox" checked value="0">
+                                                            
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
                                                         <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
@@ -180,72 +198,65 @@
             <!-- END PAGE CONTENT -->
         </div>
         <!-- END PAGE CONTAINER -->    
-          <div class="modal" id="nuevaCuenta" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+        <div class="modal" id="nuevoIngreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead">Nueva Cuenta</h4>
+                        <h4 class="modal-title" id="defModalHead">Nueva <strong>Ingreso</strong></h4>
                     </div>
                     <div class="modal-body">
-                        <div class="row" id="formaNuevaCuenta">
+                         <div class="row"  id="formanuevoEgreso">
                         <div class="col-md-12">
                             
                             <form class="form-horizontal">
                             <div class="panel panel-default">
+                                
+                               
                                 <div class="panel-body">                                                                        
                                     
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Text Field</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Cuenta</label>
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control"/>
+                                                <input type="number" class="form-control"/>
                                             </div>                                            
-                                            <span class="help-block">This is sample of text field</span>
+                                            
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">                                        
-                                        <label class="col-md-3 col-xs-12 control-label">Password</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Nombre</label>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                                <input type="password" class="form-control"/>
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" class="form-control"/>
                                             </div>            
-                                            <span class="help-block">Password field sample</span>
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group">                                        
-                                        <label class="col-md-3 col-xs-12 control-label">Datepicker</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Monto</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="number" class="form-control"/>
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Fecha</label>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                 <input type="text" class="form-control datepicker" value="2014-11-01">                                            
                                             </div>
-                                            <span class="help-block">Click on input field to get datepicker</span>
+                                            
                                         </div>
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Textarea</label>
-                                        <div class="col-md-6 col-xs-12">                                            
-                                            <textarea class="form-control" rows="5"></textarea>
-                                            <span class="help-block">Default textarea field</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Tags</label>
-                                        <div class="col-md-6 col-xs-12">                                                                                            
-                                            <input type="text" class="tagsinput" value="First,Second,Third"/>
-                                            <span class="help-block">Default textarea field</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Select</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Tipo</label>
                                         <div class="col-md-6 col-xs-12">                                                                                            
                                             <select class="form-control select">
                                                 <option>Option 1</option>
@@ -254,23 +265,27 @@
                                                 <option>Option 4</option>
                                                 <option>Option 5</option>
                                             </select>
-                                            <span class="help-block">Select box example</span>
+                                         
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">File</label>
-                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
-                                            <input type="file" class="fileinput btn-primary" name="filename" id="filename" title="Browse file"/>
-                                            <span class="help-block">Input type file</span>
-                                        </div>
-                                    </div>
+                                   
+                                  
                                     
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Checkbox</label>
+                                        <label class="col-md-3 col-xs-12 control-label">Fijo</label>
                                         <div class="col-md-6 col-xs-12">                                                                                                                                        
                                             <label class="check"><input type="checkbox" class="icheckbox" checked="checked"/> Checkbox title</label>
-                                            <span class="help-block">Checkbox sample, easy to use</span>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Recurrencia</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" class="form-control"/>
+                                            </div>            
                                         </div>
                                     </div>
 
@@ -280,7 +295,9 @@
                             </form>
                             
                         </div>
-                    </div>  
+                    </div>                    
+                                      
+                     
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    

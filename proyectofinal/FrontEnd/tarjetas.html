@@ -46,7 +46,7 @@
 
                   
                    
-                   <li class="active">
+                 <li>
                         <a href="cuentas.html"><span class="glyphicon glyphicon-user"></span> <span class="xn-text">Cuentas</span></a>
                     </li>
                     <li>
@@ -55,7 +55,7 @@
                     <li>
                         <a href="egresos.html"><span class="fa fa-arrow-down"></span> <span class="xn-text">Egresos</span></a>
                     </li>  
-                    <li>
+                    <li class="active">
                         <a href="tarjetas.html"><span class="fa fa-credit-card"></span> <span class="xn-text">Tarjetas</span></a>
                     </li>  
                     
@@ -95,104 +95,28 @@
                 
                 <!-- PAGE TITLE -->
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span> Cuentas</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Tarjetas</h2>
                 </div>
                 <!-- END PAGE TITLE -->                
                 
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
                 
-                <a class="btn btn-primary btn-lg" data-toggle='modal' data-target='#nuevaCuenta'>Registrar Nueva Cuenta</a>
-                                         
-                    
-                    <!-- START RESPONSIVE TABLES -->
-                    <div class="row" id="tabla responsive">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Cuentas registraadas</h3>
-                                </div>
-
-                                <div class="panel-body panel-body-table">
-
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-actions ">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50">Banco</th>
-                                                    
-                                                    <th width="150">Numero de cuenta</th>
-                                                    <th width="100">Tipo de Cuenta</th>
-                                                    <th width="100">Saldo</th>
-                                                    <th width="100">Tarjeta</th>
-                                                    <th width="100">actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>                                            
-                                                <tr id="trow_1">
-                                                    <td class="text-center">HSBC</td>
-                                                    <td><strong>1234567890876543</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    <td>$430.20</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_2">
-                                                    <td class="text-center">2</td>
-                                                    <td><strong>Dmitry Ivaniuk</strong></td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>$1,351.00</td>
-                                                    <td>23/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_3">
-                                                    <td class="text-center">3</td>
-                                                    <td><strong>Nadia Ali</strong></td>
-                                                    <td><span class="label label-info">In Queue</span></td>
-                                                    <td>$2,621.00</td>
-                                                    <td>22/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>                                
-
-                                </div>
-                            </div>                                                
-
-                        </div>
-                    </div>
-                    <!-- END RESPONSIVE TABLES -->
-                    
-                <!-- END PAGE CONTENT WRAPPER -->                                    
-                </div>         
-            </div>            
-            <!-- END PAGE CONTENT -->
-        </div>
-        <!-- END PAGE CONTAINER -->    
-          <div class="modal" id="nuevaCuenta" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead">Nueva Cuenta</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row" id="formaNuevaCuenta">
+                <a class="btn btn-primary btn-lg"data-toggle="modal" data-target="#nuevaTarjeta">Registrar Nueva Tarjeta</a>
+                       <div class="row" hidden="true" id="formaNuevaCuenta">
                         <div class="col-md-12">
                             
                             <form class="form-horizontal">
                             <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><strong>One Column</strong> Layout</h3>
+                                    <ul class="panel-controls">
+                                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <p>This is non libero bibendum, scelerisque arcu id, placerat nunc. Integer ullamcorper rutrum dui eget porta. Fusce enim dui, pulvinar a augue nec, dapibus hendrerit mauris. Praesent efficitur, elit non convallis faucibus, enim sapien suscipit mi, sit amet fringilla felis arcu id sem. Phasellus semper felis in odio convallis, et venenatis nisl posuere. Morbi non aliquet magna, a consectetur risus. Vivamus quis tellus eros. Nulla sagittis nisi sit amet orci consectetur laoreet. Vivamus volutpat erat ac vulputate laoreet. Phasellus eu ipsum massa.</p>
+                                </div>
                                 <div class="panel-body">                                                                        
                                     
                                     <div class="form-group">
@@ -275,12 +199,163 @@
                                     </div>
 
                                 </div>
+                                <div class="panel-footer">
+                                    <button class="btn btn-default">Clear Form</button>                                    
+                                    <button class="btn btn-primary pull-right">Submit</button>
+                                </div>
+                            </div>
+                            </form>
+                            
+                        </div>
+                    </div>                    
+                    
+                    <!-- START RESPONSIVE TABLES -->
+                    <div class="row" id="tabla responsive">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Tarjetas registradas</h3>
+                                </div>
+
+                                <div class="panel-body panel-body-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-actions ">
+                                            <thead>
+                                                <tr>
+                                                    <th width="50">Banco</th>
+                                                    
+                                                    <th width=100>Numero de tarjeta</th>
+                                                    <th width="100">Alias</th>
+                                                    <th width="100">Fecha Corte</th>
+                                                    <th width="100">Saldo</th>
+                                                    <th width="100">Limite de Credito</th>
+                                                    <th width="100">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                            
+                                                <tr id="trow_1">
+                                                    <td class="text-center">HSBC</td>
+                                                    <td><strong>John Doe</strong></td>
+                                                    <td><span class="label label-success">New</span></td>
+                                                    <td>$430.20</td>
+                                                    <td>24/09/2014</td>
+                                                    <td>24/09/2014</td>
+                                                    <td>
+                                                        <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
+                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
+                                                    </td>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>                                
+
+                                </div>
+                            </div>                                                
+
+                        </div>
+                    </div>
+                    <!-- END RESPONSIVE TABLES -->
+                    
+                <!-- END PAGE CONTENT WRAPPER -->                                    
+                </div>         
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->  
+        <!-- START MODAL CONTAINER-->
+          <div class="modal" id="nuevaTarjeta" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead">Nueva Cuenta</h4>
+                    </div>
+                    <div class="modal-body">
+                         <div class="row"  id="formaNuevoEgreso">
+                        <div class="col-md-12">
+                            
+                            <form class="form-horizontal">
+                            <div class="panel panel-default">
+                                
+                                <div class="panel-body">                                                                        
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Text Field</label>
+                                        <div class="col-md-6 col-xs-12">                                            
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input type="text" class="form-control"/>
+                                            </div>                                            
+                                            <span class="help-block">This is sample of text field</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Password</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
+                                                <input type="password" class="form-control"/>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Datepicker</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                <input type="text" class="form-control datepicker" value="2014-11-01">                                            
+                                            </div>
+                                            <span class="help-block">Click on input field to get datepicker</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Textarea</label>
+                                        <div class="col-md-6 col-xs-12">                                            
+                                            <textarea class="form-control" rows="5"></textarea>
+                                            <span class="help-block">Default textarea field</span>
+                                        </div>
+                                    </div>
+                                    
+                                   
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Select</label>
+                                        <div class="col-md-6 col-xs-12">                                                                                            
+                                            <select class="form-control select">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                            <span class="help-block">Select box example</span>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Checkbox</label>
+                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
+                                            <label class="check"><input type="checkbox" class="icheckbox" checked="checked"/> Checkbox title</label>
+                                            <span class="help-block">Checkbox sample, easy to use</span>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 
                             </div>
                             </form>
                             
                         </div>
-                    </div>  
+                    </div>                    
+                     
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    
@@ -290,6 +365,8 @@
                 </div>
             </div>
         </div>
+        <!-- END MODAL CONTAINER-->
+
         <!-- MESSAGE BOX-->
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-remove-row">
             <div class="mb-container">
