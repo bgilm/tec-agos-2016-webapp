@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
         <!-- EOF CSS INCLUDE -->                                       
     </head>
-    <body>
+    <body ng-app="prueba">
    <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
@@ -164,69 +164,28 @@
         </div>
         <!-- END PAGE CONTAINER --> 
         <!-- START MODAL CONTAINER-->
-          <div class="modal" id="nuevoEgreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+          <div class="modal" id="nuevoEgreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" ng-controller="MainCtrl">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="defModalHead">Nueva Cuenta</h4>
+                        <h4 class="modal-title" id="defModalHead">Nuevo Egreso</h4>
                     </div>
                     <div class="modal-body">
                          <div class="row"  id="formaNuevoEgreso">
                         <div class="col-md-12">
                             
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" ng-submit="altaEgreso()">
                             <div class="panel panel-default">
                                 
                                 <div class="panel-body">                                                                        
                                     
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Text Field</label>
-                                        <div class="col-md-6 col-xs-12">                                            
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control"/>
-                                            </div>                                            
-                                            <span class="help-block">This is sample of text field</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">                                        
-                                        <label class="col-md-3 col-xs-12 control-label">Password</label>
-                                        <div class="col-md-6 col-xs-12">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-unlock-alt"></span></span>
-                                                <input type="password" class="form-control"/>
-                                            </div>            
-                                            <span class="help-block">Password field sample</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">                                        
-                                        <label class="col-md-3 col-xs-12 control-label">Datepicker</label>
-                                        <div class="col-md-6 col-xs-12">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                <input type="text" class="form-control datepicker" value="2014-11-01">                                            
-                                            </div>
-                                            <span class="help-block">Click on input field to get datepicker</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Textarea</label>
-                                        <div class="col-md-6 col-xs-12">                                            
-                                            <textarea class="form-control" rows="5"></textarea>
-                                            <span class="help-block">Default textarea field</span>
-                                        </div>
-                                    </div>
-                                    
+                                <div class="form-group">
+                                     <span class="fa fa-credit-card"></span>
+                                        <label class="col-md-3 col-xs-12 control-label">Tarjeta</label>
                                    
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Select</label>
                                         <div class="col-md-6 col-xs-12">                                                                                            
-                                            <select class="form-control select">
+                                            <select ng-model="tarjeta"class="form-control select">
                                                 <option>Option 1</option>
                                                 <option>Option 2</option>
                                                 <option>Option 3</option>
@@ -237,20 +196,94 @@
                                         </div>
                                     </div>
                                     
-                                    
-                                    
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Checkbox</label>
-                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
-                                            <label class="check"><input type="checkbox" class="icheckbox" checked="checked"/> Checkbox title</label>
-                                            <span class="help-block">Checkbox sample, easy to use</span>
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Nombre</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input ng-model="nombre" type="text" class="form-control"/>
+                                            </div>            
+                                            <span class="help-block">Referencia de egreso</span>
                                         </div>
                                     </div>
+                                    
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Monto</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-usd"></span></span>
+                                                <input ng-model="monto" type="text" class="form-control"/>
+                                            </div>            
+                                        </div>
+                                    </div>
+                                     
+                                    
+                                     <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Tipo</label>
+                                   
+                                        <div class="col-md-6 col-xs-12">                                                                                            
+                                            <select ng-model="tipo" class="form-control select">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                                <option>Option 4</option>
+                                                <option>Option 5</option>
+                                            </select>
+                                            <span class="help-block">Categoría</span>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Fecha</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                <input ng-model="fecha" type="text" class="form-control datepicker" value="2014-11-01">                                            
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Financiado</label>
+                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
+                                            <label class="check"><input ng-model="financiado"type="checkbox" class="icheckbox" checked="checked"/></label>
+                                            <span class="help-block">Marcar si es financiado. (Meses)</span>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Plazo</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                                <input ng-model="plazo" type="number" class="form-control"/>
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Fijo</label>
+                                        <div class="col-md-6 col-xs-12">                                                                                                                                        
+                                            <label class="check"><input ng-model="fijo" type="checkbox" class="icheckbox" checked="checked"/></label>
+                                            <span class="help-block">Marcar si es fijo</span>
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Recurrencia</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-undo"></span></span>
+                                                <input ng-model="recurrencia" type="text" class="form-control"/>
+                                            </div>            
+                                        </div>
+                                    </div>
+                                    
 
                                 </div>
                                 
                             </div>
-                            </form>
+                            
                             
                         </div>
                     </div>                    
@@ -258,8 +291,9 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    
-                        <button class="btn btn-primary pull-right">Submit</button>
+                        <button class="btn btn-primary pull-right" type="submit">Submit</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -312,6 +346,8 @@
 
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
@@ -325,6 +361,7 @@
         <!-- END THIS PAGE PLUGINS-->  
         
         <!-- START TEMPLATE -->
+        <script type="text/javascript" src="js/egresos.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
         
         <script type="text/javascript" src="js/plugins.js"></script>        

@@ -219,8 +219,8 @@
                                         <label class="col-md-3 col-xs-12 control-label">Cuenta</label>
                                         <div class="col-md-6 col-xs-12">                                            
                                             <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="number" class="form-control"/>
+                                                <span class="input-group-addon"><span class="fa fa-list-alt"></span></span>
+                                                <input ng-model="cuenta" type="number" class="form-control"/>
                                             </div>                                            
                                             
                                         </div>
@@ -231,7 +231,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control"/>
+                                                <input ng-model="cuenta"type="text" class="form-control"/>
                                             </div>            
                                         </div>
                                     </div>
@@ -239,8 +239,8 @@
                                         <label class="col-md-3 col-xs-12 control-label">Monto</label>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="number" class="form-control"/>
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-usd"></span></span>
+                                                <input ng-model="monto" type="number" class="form-control"/>
                                             </div>            
                                         </div>
                                     </div>
@@ -249,7 +249,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                <input type="text" class="form-control datepicker" value="2014-11-01">                                            
+                                                <input ng-model ="fecha" type="text" class="form-control datepicker" value="2014-11-01">                                            
                                             </div>
                                             
                                         </div>
@@ -258,7 +258,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-12 control-label">Tipo</label>
                                         <div class="col-md-6 col-xs-12">                                                                                            
-                                            <select class="form-control select">
+                                            <select ng-model="tipo"class="form-control select">
                                                 <option>Option 1</option>
                                                 <option>Option 2</option>
                                                 <option>Option 3</option>
@@ -275,7 +275,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-12 control-label">Fijo</label>
                                         <div class="col-md-6 col-xs-12">                                                                                                                                        
-                                            <label class="check"><input type="checkbox" class="icheckbox" checked="checked"/> Checkbox title</label>
+                                            <label class="check"><input ng-model="fijo" type="checkbox" class="icheckbox" checked="checked"/></label>
                                            
                                         </div>
                                     </div>
@@ -283,8 +283,8 @@
                                         <label class="col-md-3 col-xs-12 control-label">Recurrencia</label>
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
-                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                <input type="text" class="form-control"/>
+                                                <span class="input-group-addon"><span class="fa fa-rotate-left"></span></span>
+                                                <input ng-model="recurrencia" type="text" class="form-control"/>
                                             </div>            
                                         </div>
                                     </div>
@@ -354,6 +354,7 @@
 
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
@@ -368,7 +369,7 @@
         
         <!-- START TEMPLATE -->
         <script type="text/javascript" src="js/settings.js"></script>
-        
+        <script type="text/javascript" src="js/ingresos.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
         <!-- END TEMPLATE -->
