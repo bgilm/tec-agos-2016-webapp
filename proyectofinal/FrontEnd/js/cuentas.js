@@ -5,8 +5,61 @@
         console.log(encodedString);
         var app = angular.module("prueba", []);
 
-        app.controller('MainCtrl', function ($scope,$http) {
+        app.controller('MainCtrl', function ($scope,$http,$interval) {
             console.log($scope);
+            $interval(funcionesLlenado,5000);
+            
+            $scope.consultarCuenta = function(cuenta_pk){
+            $scope.cuenta_pk=cuenta_pk
+           var req = {
+                    method: 'GET',
+                    url: 'http://localhost:8000/perfil/cuenta/consultar/'+cuenta_pk,
+                    headers: {
+                        'Authorization':'Basic '+encodedString
+                        }
+                    }
+                $http(req).then(function(res){
+           		   var data=res.data;
+                    var cuenta=[];
+                    for(var i=0;i<data.length;i++){
+                        cuenta[i]=data[i].fields
+                    }
+           		   $scope.cuenta=[]
+                    $scope.cuenta=cuenta;
+           		   console.log(cuenta);
+                   
+                }); 
+            }
+             $scope.modificarCuenta = function(){
+  
+        var req = {
+            method: 'PUT',
+            url: 'http://localhost:8000/perfil/cuenta/modificar/'+$scope.cuenta_pk,
+              data:{username:'admin',
+                          banco:$scope.banco,
+                          numero_cuenta: $scope.numero_cuenta,
+                          clabe:$scope.clabe,
+                          tipo_cuenta:$scope.tipo_cuenta,
+                          monto:$scope.monto,
+                          t_tarjeta_debito:$scope.t_tarjeta_debito,
+                          num_tarjeta:$scope.num_tarjeta,
+                          tasa_inflacion:$scope.tasa_inflacion,
+                          plazo:$scope.plazo,
+                    },
+           
+            headers: {
+                'Authorization':'Basic '+encodedString
+            }
+            
+            }
+             $http(req).then(function successCallback(response) {
+                        console.log("Success"+response);
+                  }, function errorCallback(response) {
+                        console.log($scope.tipo_cuenta);
+                        console.log($scope.t_tarjeta_debito);
+                        console.log("Error"+response);
+            });
+            }
             $scope.altaCuenta = function(){
   
         var req = {
@@ -38,8 +91,9 @@
             });
             }
             
-              
-                var req = {
+                function funcionesLlenado(){
+                console.log("pasa")
+                  var req = {
                     method: 'GET',
                     url: 'http://localhost:8000/perfil/cuenta/consultar/admin',
                     headers: {
@@ -75,9 +129,12 @@
                     $scope.bancos=bancos;
            		   console.log(bancos);
                    
-                });
+                }); 
+            }
+             
             
         });
+          
 
        
 

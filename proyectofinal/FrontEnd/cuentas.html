@@ -137,7 +137,7 @@
                                                    <td>{{x.monto}}</td>
                                                    <td>{{x.t_tarjeta_debito}}</td>
                                                    <td>
-                                                       <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
+                                                       <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil" onClick="consultarCuenta('{{x.id}}')" data-toggle='modal' data-target='#modificarCuenta'></span></button>
                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
                                                    </td>
                                                </tr>
@@ -252,6 +252,122 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                 <input ng-model="plazo" type="number" class="form-control"/>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                            </div>
+                        
+                            
+                        </div>
+                    </div>  
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default pull-left">Clear Form</button>                                    
+                        <button class="btn btn-primary pull-right" type="submit">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <div class="modal" id="modificarCuenta" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="defModalHead">Modificar Cuenta</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="formaNuevaCuenta">
+                        <div class="col-md-12">
+                            <form class="form-horizontal" id="altaCuenta"ng-submit="modificarCuenta()">
+                            <div class="panel panel-default">
+                                <div class="panel-body">                                                                        
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Banco</label>
+                                        <div class="col-md-6 col-xs-12">                                            
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-home"></span></span>
+                                               <select ng-model="banco "class="form-control select">
+                                            <option ng-repeat="banco in bancos" value="banco.nombre">{{banco.nombre}}</option>
+                                            </select>
+                                            </div>                                            
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Numero de cuenta</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input ng-model="numero_cuenta" type="number" class="form-control">{{cuenta.numero_cuenta}}</input>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Clabe</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                                <input ng-model="clabe" type="number" class="form-control">{{cuenta.clabe}}</input>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Tipo de cuenta</label>
+                                        <div class="col-md-6 col-xs-12">                                                                                            
+                                            <select ng-model="mySelectedValue"class="form-control select">
+                                            <option value="Cuenta de ahorros">Cuenta de ahorros</option>
+                                            </select>
+                                            <span class="help-block">Select box example</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Tarjeta de débito</label>
+                                        <div class="col-md-6 col-xs-12">                    
+                                            <label class="check"><input type="checkbox" class="icheckbox" checked="checked" ng-model="t_tarjeta_debito"/>  </label>
+                                            <span class="help-block">Checar si tiene tarjeta para esta cuenta</span>
+                                        </div>
+                                    </div>
+                                     <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Numero de tarjeta</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
+                                                <input ng-model="num_tarjeta" type="number" class="form-control">{{cuenta.num_tarjeta}}</input>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                         
+                                    </div>
+                                     <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Tasa de inflación</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-level-up"></span></span>
+                                                <input ng-model="tasa_inflacion" type="number" class="form-control">{{cuenta.tasa_inflacion}}</input>
+                                            </div>            
+                                            <span class="help-block">Password field sample</span>
+                                        </div>
+                                    </div>
+                                    
+                                     <div class="form-group">                                        
+                                        <label class="col-md-3 col-xs-12 control-label">Plazo</label>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                <input ng-model="plazo" type="number" class="form-control">{{cuenta.plazo}}</input>
                                             </div>            
                                             <span class="help-block">Password field sample</span>
                                         </div>

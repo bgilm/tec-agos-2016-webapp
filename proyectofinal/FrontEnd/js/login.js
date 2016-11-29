@@ -5,19 +5,23 @@
        
         var app = angular.module("prueba", []);
 
-        app.controller('MainCtrl', function ($scope,$http) {
+        app.controller('MainCtrl', function ($scope,$http,$window) {
             console.log($scope);
 //             var encodedString = Base64.encode($scope.useNname+":"+$scope.password);
             $scope.altaCuenta = function(){
   
         var req = {
             method: 'POST',
-            url: 'http://localhost:8000/token/new.json/'+"username="+$scope.userName+"&password="+$scope.password,
-            
-            
+            url: 'http://localhost:8000/token/new.json',
+            data:{password:$scope.password,username:$scope.userName
+                
+                }
             }
              $http(req).then(function successCallback(response) {
-                        console.log("Success"+response);
+                       // console.log("Success"+response);
+                        console.log(req)
+                        //$window.location.href='http://localhost:8080/index.html';
+                        
                   }, function errorCallback(response) {
                         console.log($scope.tipo_cuenta);
                         console.log($scope.t_tarjeta_debito);
