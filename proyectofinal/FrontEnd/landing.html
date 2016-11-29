@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Chromium</title>
+	<meta name="description" content="" />
+	<meta name="keywords"  content="" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- PopcornJS -->
+    <script src="http://cdn.popcornjs.org/code/dist/popcorn-complete.js"></script>
+
+        <style>
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #f4511e;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 200px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '»';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+
+	body{
+		color: #333;
+		font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+	}
+
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 3em;
+		font-family: arial,helvetica;
+        color: white;
+		margin:0;
+		padding:0;
+	}
+	h2{
+		font-size: 2em;
+		margin: 0 0 18px 0;
+		font-family: arial,helvetica;
+	}
+    h3{
+		font-size: 1em;
+		margin: 0 0 18px 0;
+		font-family: arial,helvetica;
+	}
+    .imgMain{
+             height: auto; 
+            width: auto; 
+            max-width: 150px; 
+            max-height: 150px;           
+     }
+
+/* Fixed header and footer.
+	* --------------------------------------- */
+	#header, #footer{
+		position:fixed;
+		height: 50px;
+		display:block;
+		width: 100%;
+		background: black;
+		z-index:10;
+		
+		color: #f2f2f2;
+		padding: 10px 0 0 0;
+	}
+
+	#header{
+		top:0px;
+	}
+	#footer{
+		bottom:0px;
+	}
+
+     #logins{
+         
+          text-align: right;
+        
+        }
+
+	/* Common styles
+	* --------------------------------------- */
+	img{
+	    -webkit-transition: all 0.7s ease-out;
+		-moz-transition: all 0.7s ease-out;
+		-o-transition: all 0.7s ease-out;
+		transition: all 0.7s ease-out;
+	}
+	.section{
+		text-align:center;
+		overflow:hidden;
+	}
+	.wrap{
+		width: 1180px;
+		height: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		position: relative;
+	}
+	.box{
+		text-align: left;
+		color: #808080;
+		font-size: 1.2em;
+		line-height: 1.6em;
+	}
+
+
+
+
+	/* Section 0
+	* --------------------------------------- */
+	#section0{
+		padding: 80px 0;
+        /*background-image: url("imgs/graphs_index.png");*/
+        background-color: #808080;
+        background-repeat: no-repeat;
+        background-size: cover;
+	}
+	#section0 img{
+		height: 100%;
+		margin: 40px 0 0 0;
+	}
+
+    #section05{
+		padding: 80px 0;
+        /*background-image: url("imgs/graphs_index.png");*/
+        background-color: #808080;
+        background-repeat: no-repeat;
+        background-size: cover;
+	}
+
+
+	/* Section 1
+	* --------------------------------------- */
+	#section1 img{
+		position:absolute;
+		left: 40px;
+		top: 100px;
+	}
+    #mainFeatures{
+        padding-top: 40px;
+        padding-right: 5%;
+        padding-left: 5%;
+        
+    }
+
+	#section1 .box{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -192px;
+		margin-left: 89px;
+		width: 395px;
+		z-index: 1;
+	}
+	#section1 .imgsContainer{
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: 42%;
+		left: 58%;
+		margin-top: -325px;
+		margin-left: -747px;
+		width: 800px;
+		height: 696px;
+	}
+	#section1 img{
+		height: 100%;
+	}
+	/*screen resolutions between 620px and 800px*/
+	@media all and (min-width: 620px) and (max-width: 800px){
+		#section1 .imgsContainer{
+			margin-top: -278px;
+			margin-left: -685px;
+			width: 647px;
+			height: 563px;
+		}
+	}
+
+	/*screen resolutions lower than 620px*/
+	@media all and (max-width: 620px){
+		#section1 .imgsContainer{
+			margin-top: -208px;
+			margin-left: -516px;
+			width: 534px;
+			height: 464px;
+		}
+	}
+	#iphone2{
+		z-index: 10;
+	}
+	#iphone2.active{
+		-webkit-transform: translate3d(-134px, 0px, 0px);
+		-moz-transform: translate3d(-134px, 0px, 0px);
+		-ms-transform:translate3d(-134px, 0px, 0px);
+		transform: translate3d(-134px, 0px, 0px);
+	}
+
+	#iphone3{
+		z-index: 12;
+	}
+	#iphone3.active{
+		-webkit-transform: translate3d(213px, 0px, 0px);
+		-moz-transform: translate3d(213px, 0px, 0px);
+		-ms-transform:translate3d(213px, 0px, 0px);
+		transform: translate3d(213px, 0px, 0px);
+	}
+
+	#iphone4{
+		z-index: 11;
+		left: 140px;
+	}
+
+	#iphone4.active{
+		-webkit-transform: translate3d(548px, 0px, 0px);
+		-moz-transform: translate3d(548px, 0px, 0px);
+		-ms-transform:translate3d(548px, 0px, 0px);
+		transform: translate3d(548px, 0px, 0px);
+	}
+    .mainBanner{
+            padding-top: 10%;
+            padding-left: 5%;
+            padding-right: 5%;
+            background-color: black;
+            margin-top: -40px;
+            
+    }
+
+
+
+	/* Section 2
+	* --------------------------------------- */
+	#section2 img{
+		position:absolute;
+	}
+	#section2 .imgsContainer,
+	#staticImg .imgsContainer,
+	#section3 .imgsContainer{
+		position: absolute;
+		z-index: 1;
+		left: 50%;
+		display: block;
+		margin-top: -288px;
+		margin-left: -636px;
+		width: 0;
+		height: 0;
+
+		-webkit-transition: all 1.2s ease-in-out;
+		-moz-transition: all 1.2s ease-in-out;
+		-o-transition: all 1.2s ease-in-out;
+		transition: all 1.2s ease-in-out;
+	}
+
+	#section2.moveUp .imgsContainer{
+		top: 50%;
+	}
+
+	#section2.moveDown .imgsContainer,
+	#staticImg .imgsContainer{
+		top: 90%;
+	}
+
+	#section2.active .imgsContainer{
+		top: 50%;
+	}
+
+	#section2 .box{
+		top: 22%;
+		left: 42%;
+		position: absolute;
+		width: 582px;
+	}
+
+	#iphone-yellow{
+		top: -35px;
+		left: -222px;
+	}
+
+	#iphone-red{
+		top: -194px;
+		left: 106px;
+	}
+
+	#iphone-blue{
+		top: 320px;
+		left: 448px;
+	}
+
+	#iphone-green{
+		left: 106px;
+		position:absolute;
+	}
+
+	#staticImg{
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: 200%;
+		left: 0;
+		width: 100%;
+		min-width: 980px;
+		height: 100%;
+
+		-webkit-transition: all 0.7s ease-out;
+		-moz-transition: all 0.7s ease-out;
+		-o-transition: all 0.7s ease-out;
+		transition: all 0.7s ease-out;
+
+		-webkit-backface-visibility: hidden;
+		-webkit-perspective: 1000;
+	}
+	#staticImg.moveDown{
+	-webkit-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+	}
+	#staticImg.moveUp{
+
+	-webkit-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+	}
+	#staticImg.moveDown .imgsContainer{
+			top: 50%;
+	}
+	#staticImg.moveDown img{
+		top: 155px;
+	}
+
+	#staticImg.active .imgsContainer{
+		top: 50%;
+	}
+
+
+	#staticImg.active img{
+		top: 487px;
+	}
+
+
+
+
+
+	/* Section 3
+	* --------------------------------------- */
+	#section3 .imgsContainer{
+		top: 50%;
+	}
+
+	#section3 img{
+		top: 155px;
+		left: 455px;
+		position: absolute;
+	}
+	#section3 .box{
+		text-align: center;
+		margin: 10% 0 0 0;
+	}
+
+    .mainSignUp{
+        padding-top: 25px;
+        padding-bottom:45px; 
+                   
+    }
+
+	/* Overwriting fullPage.js tooltip color
+	* --------------------------------------- */
+	.fp-tooltip{
+		color: #AAA;
+	}
+	#fp-nav span, .fp-slidesNav span{
+		border-color: #AAA;
+	}
+	#fp-nav li .active span, .fp-slidesNav .active span{
+		background: #AAA;
+	}
+
+	</style>
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+	<script type="text/javascript" src="examples.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				'verticalCentered': false,
+				'css3': true,
+				'sectionsColor': ['#F0F2F4', '#fff', '#fff', '#fff'],
+				'navigation': true,
+				'navigationPosition': 'right',
+				'navigationTooltips': ['fullPage.js', 'Powerful', 'Amazing', 'Simple'],
+
+				'afterLoad': function(anchorLink, index){
+					if(index == 2){
+						$('#iphone3, #iphone2, #iphone4').addClass('active');
+					}
+				},
+
+				'onLeave': function(index, nextIndex, direction){
+					if (index == 3 && direction == 'down'){
+						$('.section').eq(index -1).removeClass('moveDown').addClass('moveUp');
+					}
+					else if(index == 3 && direction == 'up'){
+						$('.section').eq(index -1).removeClass('moveUp').addClass('moveDown');
+					}
+
+					$('#staticImg').toggleClass('active', (index == 2 && direction == 'down' ) || (index == 4 && direction == 'up'));
+					$('#staticImg').toggleClass('moveDown', nextIndex == 4);
+					$('#staticImg').toggleClass('moveUp', index == 4 && direction == 'up');
+				}
+			});
+		});
+
+		document.addEventListener("DOMContentLoaded", function () {
+         // Create a popcorn instance by calling the Vimeo player plugin
+         var popcorn = Popcorn.vimeo(
+         '#video',
+         'https://player.vimeo.com/video/140943318');
+         popcorn.footnote({
+           start: 4,
+           end:5,
+           text: "nice keyboard",
+           target: "anotaciones_pop"
+         }).footnote({
+         	start: 14,
+         	end: 16,
+			text: "<b>&nbsp; &nbsp; &nbsp; <br> finance is easy</b>",
+			target: "anotaciones_pop"
+			//innerHTML: "<b>Fuerte</b>"
+         }).footnote({
+         	start: 10,
+         	end: 14,
+			text: "<b>This lady know what she's talking about</b>",
+			target: "anotaciones_pop"
+			//innerHTML: "<b>Fuerte</b>"
+         }).footnote({
+         	start: 26,
+         	end: 29,
+			text: "<b>That's how you do it</b>",
+			target: "anotaciones_pop"
+			//innerHTML: "<b>Fuerte</b>"
+         }).footnote({
+         	start: 59,
+         	end: 65,
+			text: "<b> love keybords </b>",
+			target: "anotaciones_pop"
+			//innerHTML: "<b>Fuerte</b>"
+         });
+         // play the video right away
+         //example.play();
+      }, false);
+	</script>
+
+</head>
+<body>
+<div id="header">
+<a>Chromium</a>
+
+<a href="file:///Users/Benn/Desktop/ITC/7mo%20semestre/Web/ProyectoFront/tec-agos-2016-webapp/proyectofinal/FrontEnd/pages-login.html">Log in</a>
+<a>Sign-up</a>
+</div>    
+ 
+<select id="demosMenu">
+  <option selected>Choose Demo</option>
+  <option id="backgrounds">Background images</option>
+  <option id="backgroundVideo">Background video</option>
+  <option id="gradientBackgrounds">Gradient backgrounds</option>
+  <option id="backgroundsFixed">Fixed fullscreen backgrounds</option>
+  <option id="looping">Looping</option>
+  <option id="noAnchor">No anchor links</option>
+  <option id="scrollingSpeed">Scrolling speed</option>
+  <option id="easing">Easing</option>
+  <option id="callbacks">Callbacks</option>
+  <option id="css3">CSS3</option>
+  <option id="continuous">Continuous scrolling</option>
+  <option id="normalScroll">Normal scrolling</option>
+  <option id="scrollBar">Scroll bar enabled</option>
+  <option id="scrolling">Scroll inside sections and slides</option>
+  <option id="navigationV">Vertical navigation dots</option>
+  <option id="navigationH">Horizontal navigation dots</option>
+  <option id="fixedHeaders">Fixed headers</option>
+  <option id="apple">Apple iPhone demo (animations)</option>
+  <option id="oneSection">One single section</option>
+  <option id="responsiveHeight">Responsive Height</option>
+  <option id="responsiveWidth">Responsive Width</option>
+  <option id="responsiveAutoHeight">Responsive Auto Height</option>
+  <option id="autoHeight">Auto height</option>
+  <option id="methods">Methods</option>
+</select>
+
+<div id="fullpage">
+	<div id="staticImg">
+		<div class="imgsContainer">
+			<img src="imgs/iphone-green.png" alt="iphone" id="iphone-green" />
+		</div>
+	</div>
+
+	<div class="section" id="section0">
+        <div class="mainBanner">
+        
+        <h1>The personal finance assistant you've always wanted</h1>
+        <div class="mainSignUp">
+            <button class="button" style="vertical-align:middle"><span>Sign up</span></button>
+        </div>
+        
+        
+        </div>
+        <div class="row" id="mainFeatures">
+            <div class="col-md-4">
+             <h2><b>Budgets? You Betcha</b></h2>
+            <h3>Effortlessly create budgets that area easy to stick to</h3>
+            <img src="imgs/budgets.png" class="imgMain"/>
+            </div>
+            <div class="col-md-4">
+                <h2><b>All-in-One? Done</b></h2>
+                <h3>Get a clear view of your total financial life</h3>
+                <img src="imgs/allone.png" class="imgMain"/>
+            </div>
+            <div class="col-md-4">
+             <h2><b>Tips? Checked</b></h2>
+            <h3>Find out how to improve your personal finances</h3>
+                <img src="imgs/tips.png" class="imgMain"/>
+            </div>
+        </div>   
+	</div>
+	<div class="section" id="section1">
+		<div class="wrap">
+			<div class="row">
+<!--
+				<img src="imgs/iphone2.png" alt="iphone" id="iphone2" />
+				<img src="imgs/iphone3.png" alt="iphone" id="iphone3" />
+				<img src="imgs/iphone4.png" alt="iphone" id="iphone4" />
+-->				<div style="margin-top:10%;">
+					<div id="video" style="width: 640px; height: 360px;" ></div>
+				</div>
+    			<div class="box" id="anotaciones_pop">
+				
+				</div>		
+    		</div>
+    		
+			
+		</div>
+	</div>
+
+	<div class="section moveDown" id="section2">
+		<div class="wrap">
+			<div class="imgsContainer">
+				<img src="imgs/iphone-yellow.png" alt="iphone" id="iphone-yellow" />
+				<img src="imgs/iphone-red.png" alt="iphone" id="iphone-red" />
+				<img src="imgs/iphone-blue.png" alt="iphone" id="iphone-blue" />
+			</div>
+
+			<div class="box">
+				<h2>Amazing stuff</h2>
+				Try free for 14 days, you will fall in love with the experience!
+			</div>
+		</div>
+	</div>
+	<div class="section moveDown" id="section3">
+		<div class="wrap">
+			<div class="box">
+				<h2>New release</h2>
+				Managing you personal finances has never been easier.
+			</div>
+		</div>
+		<div class="imgsContainer">
+			<img src="imgs/iphone-two.png" alt="iphone" id="iphone-two" />
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
