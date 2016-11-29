@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
         <!-- EOF CSS INCLUDE -->                                       
     </head>
-    <body>
+    <body ng-app="prueba"  ng-controller="MainCtrl">
    <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
@@ -106,53 +106,53 @@
                                          
                     
                     <!-- START RESPONSIVE TABLES -->
-                    <div class="row" id="tabla responsive">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
+                   <div class="row" id="tabla responsive">
+                       <div class="col-md-12">
+                           <div class="panel panel-default">
 
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Tarjetas registradas</h3>
-                                </div>
+                               <div class="panel-heading">
+                                   <h3 class="panel-title">Tarjetas registradas</h3>
+                               </div>
 
-                                <div class="panel-body panel-body-table">
+                               <div class="panel-body panel-body-table">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-actions ">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50">Banco</th>
-                                                    
-                                                    <th width=100>Numero de tarjeta</th>
-                                                    <th width="100">Alias</th>
-                                                    <th width="100">Fecha Corte</th>
-                                                    <th width="100">Saldo</th>
-                                                    <th width="100">Limite de Credito</th>
-                                                    <th width="100">Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>                                            
-                                                <tr id="trow_1">
-                                                    <td class="text-center">HSBC</td>
-                                                    <td><strong>John Doe</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    <td>$430.20</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>                                
+                                   <div class="table-responsive">
+                                       <table class="table table-hover table-actions " ng-repeat="tarjeta in tarjetas">
+                                           <thead>
+                                               <tr>
+                                                   <th width="50">Banco</th>
 
-                                </div>
-                            </div>                                                
+                                                   <th width=100>Numero de tarjeta</th>
+                                                   <th width="100">Alias</th>
+                                                   <th width="100">Fecha Corte</th>
+                                                   <th width="100">Saldo</th>
+                                                   <th width="100">Limite de Credito</th>
+                                                   <th width="100">Acciones</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>                                            
+                                               <tr id="trow_1">
+                                                   <td class="text-center">{{tarjeta.banco}}</td>
+                                                   <td ><strong> {{tarjeta.numero_tarjeta}}</strong></td>
+                                                   <td ><span class="label label-success">{{tarjeta.alias}}</span></td>
+                                                   <td >{{tarjeta.fecha_corte}}</td>
+                                                   <td >{{tarjeta.saldo}}</td>
+                                                   <td>{{tarjeta.limite_credito}}</td>
+                                                   <td>
+                                                       <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
+                                                       <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
+                                                   </td>
 
-                        </div>
-                    </div>
-                    <!-- END RESPONSIVE TABLES -->
+                                           </tbody>
+                                       </table>
+                                   </div>                                
+
+                               </div>
+                           </div>                                                
+
+                       </div>
+                   </div>
+                   <!-- END RESPONSIVE TABLES —>
                     
                 <!-- END PAGE CONTENT WRAPPER -->                                    
                 </div>         
@@ -172,7 +172,7 @@
                        <div class="row"  id="formaNuevaCuenta">
                         <div class="col-md-12">
                             
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" ng-submit="altaTarjeta()">
                             <div class="panel panel-default">
                                 
                                 
@@ -180,7 +180,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 col-xs-12 control-label">Banco</label>
                                         <div class="col-md-6 col-xs-12">                                                                                       
-                                            <select class="form-control select">
+                                            <select ng-model="banco" class="form-control select">
                                                 <option>Option 1</option>
                                                 <option>Option 2</option>
                                                 <option>Option 3</option>
@@ -197,7 +197,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-pencil"></span>
                                                 </span>
-                                                <input type="text" class="form-control"/>
+                                                <input ng-model="alias"type="text" class="form-control"/>
                                             </div>            
                                             
                                         </div>
@@ -208,7 +208,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-credit-card"></span></span>
-                                                <input type="number" class="form-control"/>
+                                                <input ng-model="numero_tarjeta" type="number" class="form-control"/>
                                             </div>            
                                             
                                         </div>
@@ -218,7 +218,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-usd"></span></span>
-                                                <input type="number" class="form-control"/>
+                                                <input ng-model="limite_credito" type="number" class="form-control"/>
                                             </div>            
                                             
                                         </div>
@@ -229,7 +229,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-level-up"> </span></span>
-                                                <input type="number" class="form-control"/>
+                                                <input ng-model="tasa_interes"type="number" class="form-control"/>
                                             </div>            
                                             
                                         </div>
@@ -240,7 +240,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                                <input type="text" class="form-control datepicker" value="2014-11-01">                                            
+                                                <input ng-model="fecha_corte"type="text" class="form-control datepicker" value="2014-11-01">                                            
                                             </div>
                                             <span class="help-block">Click on input field to get datepicker</span>
                                         </div>
@@ -250,7 +250,7 @@
                                         <div class="col-md-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><span class="fa fa-usd"> </span></span>
-                                                <input type="number" class="form-control"/>
+                                                <input ng-model="saldo" type="number" class="form-control"/>
                                             </div>            
                                             
                                         </div>
@@ -261,7 +261,7 @@
                                 </div>
                                 
                             </div>
-                            </form>
+                            
                             
                         </div>
                     </div>                     
@@ -269,8 +269,9 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    
-                        <button class="btn btn-primary pull-right">Submit</button>
+                        <button class="btn btn-primary pull-right" type="submit">Submit</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -324,6 +325,7 @@
 
     <!-- START SCRIPTS -->
         <!-- START PLUGINS -->
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
@@ -338,7 +340,7 @@
         
         <!-- START TEMPLATE -->
         <script type="text/javascript" src="js/settings.js"></script>
-        
+        <script type="text/javascript" src="js/tarjetas.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
         <!-- END TEMPLATE -->

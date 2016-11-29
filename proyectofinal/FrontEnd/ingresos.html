@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
         <!-- EOF CSS INCLUDE -->                                       
     </head>
-    <body>
+    <body ng-app="prueba"  ng-controller="MainCtrl">
    <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
@@ -103,94 +103,61 @@
                 
                 <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevoIngreso">Registrar Nuevo Ingreso</a>
                       
-                    <!-- START RESPONSIVE TABLES -->
-                    <div class="row"  id="tabla responsive">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
+                   <!-- START RESPONSIVE TABLES -->
+                   <div class="row"  id="tabla responsive">
+                       <div class="col-md-12">
+                           <div class="panel panel-default">
 
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Ingresos registrados</h3>
-                                </div>
+                               <div class="panel-heading">
+                                   <h3 class="panel-title">Ingresos registrados</h3>
+                               </div>
 
-                                <div class="panel-body panel-body-table">
+                               <div class="panel-body panel-body-table">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-actions ">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50">Cuenta</th>
-                                                    
-                                                    <th>Nombre referencia </th>
-                                                    <th width="100">Monto</th>
-                                                    <th width="100">Recurrencia</th>
-                                                    <th width="100">Fecha</th>
-                                                    <th width="100">Tipo</th>
-                                                    <th width="100">Fijo</th>
-                                                    <th width="100">actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>                                            
-                                                <tr id="trow_1">
-                                                    <td class="text-center">HSBC</td>
-                                                    <td><strong>John Doe</strong></td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    <td>$430.20</td>
-                                                    <td>24/09/2014</td>
-                                                    <td>JHG</td>
-                                                    <td>
-                                                      
-                                                    <input type="checkbox" checked value="0">
-                                                            
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_2">
-                                                    <td class="text-center">2</td>
-                                                    <td><strong>Dmitry Ivaniuk</strong></td>
-                                                    <td><span class="label label-warning">Pending</span></td>
-                                                    <td>$1,351.00</td>
-                                                    <td>23/09/2014</td>
-                                                    <td>JHG</td>
-                                                    <td>
-                                                      
-                                                    <input type="checkbox" checked value="0">
-                                                            
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_2');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                                <tr id="trow_3">
-                                                    <td class="text-center">3</td>
-                                                    <td><strong>Nadia Ali</strong></td>
-                                                    <td><span class="label label-info">In Queue</span></td>
-                                                    <td>$2,621.00</td>
-                                                    <td>22/09/2014</td>
-                                                    <td>JHG</td>
-                                                    <td>
-                                                      
-                                                    <input type="checkbox" checked value="0">
-                                                            
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-default btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_3');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>                                
+                                   <div class="table-responsive">
+                                       <table class="table table-hover table-actions" ng-repeat="ingreso in ingresos">
+                                           <thead>
+                                               <tr>
+                                                   <th width="50">Cuenta</th>
 
-                                </div>
-                            </div>                                                
+                                                   <th>Nombre referencia </th>
+                                                   <th width="100">Monto</th>
+                                                   <th width="100">Recurrencia</th>
+                                                   <th width="100">Fecha</th>
+                                                   <th width="100">Tipo</th>
+                                                   <th width="100">Fijo</th>
+                                                   <th width="100">actions</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>                                            
+                                               <tr id="trow_1">
+                                                   <td class="text-center" ng-model="cuenta">{{ingreso.cuenta}}</td>
+                                                   <td ng-model="nombre"><strong>{{ingreso.nombre}}</strong></td>
+                                                   <td ng-model="monto"><span class="label label-success">{{ingreso.monto}}</span></td>
+                                                   <td ng-model="recurrencia">{{ingreso.recurrencia}}</td>
+                                                   <td ng-model="fecha">{{ingreso.fecha}}</td>
+                                                   <td ng-model="tipo">{{ingreso.tipo}}</td>
+                                                   <td>
 
-                        </div>
-                    </div>
-                    <!-- END RESPONSIVE TABLES -->
+                                                   <input type="checkbox" checked value="{{ingreso.fijo}}">
+
+                                                   </td>
+                                                   <td>
+                                                       <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
+                                                       <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
+                                                   </td>
+                                               </tr>
+                                               
+                                           </tbody>
+                                       </table>
+                                   </div>                                
+
+                               </div>
+                           </div>                                                
+
+                       </div>
+                   </div>
+                   <!-- END RESPONSIVE TABLES —>
                     
                 <!-- END PAGE CONTENT WRAPPER -->                                    
                 </div>         
@@ -209,7 +176,7 @@
                          <div class="row"  id="formanuevoEgreso">
                         <div class="col-md-12">
                             
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" ng-submit="altaIngreso()">
                             <div class="panel panel-default">
                                 
                                
@@ -292,7 +259,7 @@
                                 </div>
                                 
                             </div>
-                            </form>
+                            
                             
                         </div>
                     </div>                    
@@ -301,8 +268,9 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default pull-left">Clear Form</button>                                    
-                        <button class="btn btn-primary pull-right">Submit</button>
+                        <button class="btn btn-primary pull-right" type="submit">Submit</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
                     </div>
                 </div>
             </div>

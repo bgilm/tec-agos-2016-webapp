@@ -8,45 +8,20 @@
         console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
         var app = angular.module("prueba", []);
         app.controller('MainCtrl', function ($scope,$http) {
-//            $http({ method: 'POST', 
-//                    url: 'http://localhost:8000/cuenta/Registrar',
-//                    headers:{
-//                      Authorization:'Basic '+encodedString,
-//                    },
-//                    data:{username:'admin',
-//                          banco:'HSBC',
-//                          numero_cuenta: '123',
-//                          clabe:'123',
-//                          tipo_cuenta:'Cuenta de ahorros',
-//                          monto:'123',
-//                          t_tarjeta_debito:'True',
-//                          num_tarjeta:'123',
-//                          tasa_inflacion:'123',
-//                          plazo:'123',
-//                    }
-//                  })
-            $scope.altaCuenta = function(){
-                var cuenta=document.getElementById("cuenta").value;
-                var nombre=document.getElementById("nombre").value;
-                var monto=document.getElementById("monto").value;
-                var recurrencia=document.getElementById("recurrencia").value;
-                var fijo=document.getElementById("fijo").value;
-                var tipo =document.getElementById("tipo").value;
-                var fecha =document.getElementById("fecha").value;
-                
-              
-                
+
+            $scope.altaIngreso = function(){
+           
         var req = {
             method: 'POST',
             url: 'http://localhost:8000/perfil/ingreso/agregar',
               data:{username:'admin',
-                          tarjeta:tarjeta,
-                          nombre: nombre,
-                          monto:monto,
-                          recurrencia:recurrencia,
-                          fijo:fijo,
-                          tipo:tipo,
-                          fecha:fecha   
+                          tarjeta:$scope.tarjeta,
+                          nombre: $scope.nombre,
+                          monto:$scope.monto,
+                          recurrencia:$scope.recurrencia,
+                          fijo:$scope.fijo,
+                          tipo:$scope.tipo,
+                          fecha:$scope.fecha   
                     },
            
             headers: {
@@ -60,4 +35,26 @@
                         console.log("Error"+response)
             });
             }
-        });
+            //$scope.consultarIngresos = function(){
+                var req = {
+                    method: 'GET',
+                    url: 'http://localhost:8000/perfil/ingreso/consultar/'+'admin',
+                    headers: {
+                        'Authorization':'Basic '+encodedString
+                    }
+                }
+                $http(req).then(function(res){
+           		var data=res.data;
+                    var ingresos=[];
+                    for(var i=0;i<data.length;i++){
+                        ingresos[i]=data[i].fields
+                    }
+           		   $scope.ingresos=[]
+                    
+           		   console.log(ingresos);
+           		$scope.ingresos=ingresos;
+           		
+                });
+                
+            //}
+            });

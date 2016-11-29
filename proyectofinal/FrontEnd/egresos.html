@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
         <!-- EOF CSS INCLUDE -->                                       
     </head>
-    <body ng-app="prueba">
+    <body ng-app="prueba"  ng-controller="MainCtrl">
    <div class="page-container">
             
             <!-- START PAGE SIDEBAR -->
@@ -104,58 +104,58 @@
                 
                 <a class="btn btn-primary btn-lg"data-toggle="modal" data-target="#nuevoEgreso">Registrar Nuevo Egreso</a>
                      
-                    <!-- START RESPONSIVE TABLES -->
-                    <div class="row" id="tabla responsive">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
+                       <!-- START RESPONSIVE TABLES -->
+                   <div class="row" id="tabla responsive">
+                       <div class="col-md-12">
+                           <div class="panel panel-default">
 
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Egresos registrados</h3>
-                                </div>
+                               <div class="panel-heading">
+                                   <h3 class="panel-title">Egresos registrados</h3>
+                               </div>
 
-                                <div class="panel-body panel-body-table">
+                               <div class="panel-body panel-body-table">
 
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-actions ">
-                                            <thead>
-                                                <tr>
-                                                    <th width="50">Tarjeta</th>
-                                                    
-                                                    <th width='200'>Nombre de referencia</th>
-                                                    <th width="100">Monto</th>
-                                                    <th width="100">Fijo</th>
-                                                    <th width="100">Recurrencia</th>
-                                                    <th width="100">Fecha</th>
-                                                    <th width="100">Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>                                            
-                                                <tr id="trow_1">
-                                                    <td class="text-center">HSBC</td>
-                                                    <td><strong>John Doe</strong></td>
-                                                    <td>$430.20</td>
-                                                    <td><span class="label label-success">New</span></td>
-                                                    
-                                                    <td>Mensual</td>
-                                                    <td>
-                                                       24/09/2014 
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
-                                                        <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
-                                                    </td>
-                                                
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>                                
+                                   <div class="table-responsive">
+                                       <table class="table table-hover table-actions " ng-repeat="egreso in egresos">
+                                           <thead>
+                                               <tr>
+                                                   <th width="50">Tarjeta</th>
 
-                                </div>
-                            </div>                                                
+                                                   <th width='200'>Nombre de referencia</th>
+                                                   <th width="100">Monto</th>
+                                                   <th width="100">Fijo</th>
+                                                   <th width="100">Recurrencia</th>
+                                                   <th width="100">Fecha</th>
+                                                   <th width="100">Acciones</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>                                            
+                                               <tr id="trow_1">
+                                                   <td class="text-center" ng-model="tarjeta">{{egreso.tarjeta}}</td>
+                                                   <td ng-model="nombre"><strong> {{egreso.nombre}}</strong></td>
+                                                   <td ng-model="monto">{{egreso.monto}}</td>
+                                                   <td ng-model="fijo"><span class="label label-success">{{egreso.fijo}}</span></td>
 
-                        </div>
-                    </div>
-                    <!-- END RESPONSIVE TABLES -->
+                                                   <td ng-model="recurrencia">{{egreso.recurrencia}}</td>
+                                                   <td ng-model="fecha">
+                                                      {{egreso.fecha}}
+                                                   </td>
+                                                   <td>
+                                                       <button class="btn btn-success btn-rounded btn-sm"><span class="fa fa-pencil"></span></button>
+                                                       <button class="btn btn-danger btn-rounded btn-sm" onClick="delete_row('trow_1');"><span class="fa fa-times"></span></button>
+                                                   </td>
+
+
+                                           </tbody>
+                                       </table>
+                                   </div>                                
+
+                               </div>
+                           </div>                                                
+
+                       </div>
+                   </div>
+                   <!-- END RESPONSIVE TABLES —>
                     
                 <!-- END PAGE CONTENT WRAPPER -->                                    
                 </div>         
@@ -164,7 +164,7 @@
         </div>
         <!-- END PAGE CONTAINER --> 
         <!-- START MODAL CONTAINER-->
-          <div class="modal" id="nuevoEgreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" ng-controller="MainCtrl">
+          <div class="modal" id="nuevoEgreso" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true" >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -363,7 +363,7 @@
         <!-- START TEMPLATE -->
         <script type="text/javascript" src="js/egresos.js"></script>
         <script type="text/javascript" src="js/settings.js"></script>
-        
+        <script type="text/javascript" src="js/egresos.js"></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>        
         <!-- END TEMPLATE -->

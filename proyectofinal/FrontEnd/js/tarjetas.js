@@ -2,83 +2,58 @@
 
         var encodedString = Base64.encode('1:4hc-3cd13925d758704bffe4');
         //var username= document.getElementById("username").value;
-        console.log(encodedString);
+        
+            
+       
+        console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
         var app = angular.module("prueba", []);
-
         app.controller('MainCtrl', function ($scope,$http) {
-            console.log($scope);
-            $scope.altaCuenta = function(){
-  
+
+            $scope.altaTarjeta = function(){   
         var req = {
             method: 'POST',
-            url: 'http://localhost:8000/perfil/cuenta/agregar',
+            url: 'http://localhost:8000/perfil/tarjeta/agregar',
               data:{username:'admin',
                           banco:$scope.banco,
-                          numero_cuenta: $scope.numero_cuenta,
-                          clabe:$scope.clabe,
-                          tipo_cuenta:$scope.tipo_cuenta,
-                          monto:$scope.monto,
-                          t_tarjeta_debito:$scope.t_tarjeta_debito,
-                          num_tarjeta:$scope.num_tarjeta,
-                          tasa_inflacion:$scope.tasa_inflacion,
-                          plazo:$scope.plazo,
+                          numero_tarjeta: $scope.numero_tarjeta,
+                          limite_credito:$scope.limite_credito,
+                          tasa_interes:$scope.tasa_interes,
+                          alias:$scope.alias,
+                          fecha_corte:$scope.fecha_corte,
+                          saldo:$scope.saldo,
                     },
            
             headers: {
                 'Authorization':'Basic '+encodedString
             }
-            
+          
             }
              $http(req).then(function successCallback(response) {
-                        console.log("Success"+response);
+                        console.log("Success"+response)
                   }, function errorCallback(response) {
-                        console.log($scope.tipo_cuenta);
-                        console.log($scope.t_tarjeta_debito);
-                        console.log("Error"+response);
+                        console.log("Error"+response)
             });
             }
-            
-              
+              // $scope.consultarTarjetas = function(){
                 var req = {
                     method: 'GET',
-                    url: 'http://localhost:8000/perfil/cuenta/consultar/admin',
+                    url: 'http://localhost:8000/perfil/tarjeta/consultar/admin',
                     headers: {
                         'Authorization':'Basic '+encodedString
                     }
-                    }
+                }
                 $http(req).then(function(res){
-           		   var data=res.data;
-                    var cuentas=[];
+           		var data=res.data;
+                var tarjetas=[];
                     for(var i=0;i<data.length;i++){
-                        cuentas[i]=data[i].fields
+                        tarjetas[i]=data[i].fields
                     }
-           		   $scope.cuentas=[]
-                    $scope.cuentas=cuentas;
-           		   console.log(cuentas);
-                   
+           		   $scope.tarjetas=[]
+                   $scope.tarjetas=tarjetas;
+           		   console.log(tarjetas);
+           		
+           		
                 });
-            
-                   var req = {
-                    method: 'GET',
-                    url: 'http://localhost:8000/perfil/bancos/',
-                    headers: {
-                        'Authorization':'Basic '+encodedString
-                        }
-                    }
-                $http(req).then(function(res){
-           		   var data=res.data;
-                    var bancos=[];
-                    for(var i=0;i<data.length;i++){
-                        bancos[i]=data[i].fields
-                    }
-           		   $scope.bancos=[]
-                    $scope.bancos=bancos;
-           		   console.log(bancos);
-                   
-                });
-            
+                
+            //}
         });
-
-       
-
-    

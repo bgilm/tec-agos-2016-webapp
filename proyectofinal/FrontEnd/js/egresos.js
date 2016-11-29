@@ -5,6 +5,28 @@
         console.log(encodedString); // Outputs: "SGVsbG8gV29ybGQh"
         var app = angular.module("prueba", []);
         app.controller('MainCtrl', function ($scope,$http) {
+              //$scope.consultarEgresos = function(){
+                var req = {
+                    method: 'GET',
+                    url: 'http://localhost:8000/perfil/egreso/consultar/admin',
+                    headers: {
+                        'Authorization':'Basic '+encodedString
+                    }
+                    }
+                $http(req).then(function(res){
+           		   var data=res.data;
+                    var egresos=[];
+                    for(var i=0;i<data.length;i++){
+                        egresos[i]=data[i].fields
+                    }
+           		   $scope.egresos=[]
+                   
+           		   console.log(egresos);
+           		   $scope.egresos=egresos;
+           		
+                });
+                
+            //}
             $scope.altaEgreso = function(){                
         var req = {
             method: 'POST',
@@ -27,11 +49,12 @@
           
             }
              $http(req).then(function successCallback(response) {
-                        console.log("Success"+response)
+                        console.log("Success"+response);
                   }, function errorCallback(response) {
-                        console.log("Error"+response)
+                        console.log("Error"+response);
             });
             }
+             
         });
 
     
