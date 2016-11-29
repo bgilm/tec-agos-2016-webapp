@@ -9,18 +9,31 @@
             console.log($scope);
 //             var encodedString = Base64.encode($scope.useNname+":"+$scope.password);
             $scope.altaCuenta = function(){
-  
+            var username = $scope.userName;
+            var password = $scope.password;
+            
         var req = {
             method: 'POST',
             url: 'http://localhost:8000/token/new.json',
-            data:{password:$scope.password,username:$scope.userName
+            data:{password:password,username:username
+                },
+            headers:{'Content-Type':'application/x-www-form-urlencoded'
                 
-                }
+            },
+            transformRequest: function(obj) {
+                    var str = [];
+                    for(var p in obj)
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+    }
             }
              $http(req).then(function successCallback(response) {
                        // console.log("Success"+response);
-                        console.log(req)
-                        //$window.location.href='http://localhost:8080/index.html';
+                        console.log(req);
+                        console.log(response);
+                    if(response.data.success){
+                        $window.location.href='http://localhost:8080/index.html';
+                    }
                         
                   }, function errorCallback(response) {
                         console.log($scope.tipo_cuenta);
